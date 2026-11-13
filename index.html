@@ -1,1 +1,205 @@
-Selamat Belajar AI
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz Flowchart Kelas 7 | Koding dan Kecerdasan Artificial</title>
+<style>
+:root{--navy:#173b68;--blue:#2878d0;--sky:#eaf4ff;--ink:#1e293b;--muted:#64748b;--green:#15966a;--red:#dc5656}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:linear-gradient(135deg,#e8f3ff,#f7f3ff 55%,#e9fbf5);min-height:100vh;padding:24px 14px}
+.container{max-width:900px;margin:auto}
+.hero{background:linear-gradient(125deg,#15365f,#2878d0);color:white;border-radius:24px;padding:30px;position:relative;overflow:hidden;box-shadow:0 14px 35px #17457725}
+.hero:after{content:"";position:absolute;width:230px;height:230px;border:35px solid #ffffff15;border-radius:50%;right:-60px;top:-95px}
+.tag{display:inline-block;background:#ffffff20;border:1px solid #ffffff45;padding:6px 12px;border-radius:99px;font-size:.8rem;font-weight:700;letter-spacing:.06em}
+h1{font-size:clamp(2rem,5vw,3.1rem);line-height:1.08;margin:17px 0 10px}
+.hero p{margin:0;color:#e2efff;max-width:600px}
+.flow-art{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin-top:24px}
+.shape{padding:9px 13px;background:#fff;color:#194577;font-weight:800;font-size:.8rem;box-shadow:0 4px 12px #001b3c25}
+.oval{border-radius:99px}.rect{border-radius:7px}.diamond{transform:skew(-12deg);border-radius:5px}
+.arrow{font-weight:900;color:#fff}
+.card{background:#fff;border:1px solid #e3eaf3;border-radius:20px;padding:24px;margin-top:20px;box-shadow:0 10px 28px #183a6010}
+h2{margin:0 0 15px;font-size:1.35rem}
+label{display:block;font-size:.9rem;font-weight:700;margin:13px 0 7px}
+input{width:100%;padding:13px 14px;border:1px solid #cbd5e1;border-radius:11px;font:inherit;outline:none}
+input:focus{border-color:var(--blue);box-shadow:0 0 0 3px #2878d020}
+.btn{border:0;border-radius:12px;padding:13px 19px;font:inherit;font-weight:800;cursor:pointer;transition:.18s}
+.btn:hover{transform:translateY(-1px);filter:brightness(.97)}
+.primary{background:var(--blue);color:#fff}.secondary{background:#eaf2fc;color:#215b9b}
+button:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.pill{background:#f0f6ff;color:#245d9b;border-radius:10px;padding:9px 12px;font-size:.85rem;font-weight:700}
+.hidden{display:none!important}
+.topline{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.progress{height:9px;background:#e8eef6;border-radius:99px;overflow:hidden;margin:14px 0 22px}
+.progress span{height:100%;display:block;width:0;background:linear-gradient(90deg,#2878d0,#26b887);transition:width .25s}
+.question{border:1px solid #e4eaf2;border-radius:16px;padding:18px;margin:16px 0}
+.qnum{display:inline-block;background:#eaf4ff;color:#2265ad;border-radius:8px;padding:5px 9px;font-size:.78rem;font-weight:800}
+.question h3{font-size:1.05rem;line-height:1.5;margin:12px 0}
+.option{display:flex;gap:10px;align-items:flex-start;padding:11px 12px;margin:8px 0;border:1px solid #dce4ee;border-radius:11px;cursor:pointer;transition:.15s}
+.option:hover{background:#f5f9ff;border-color:#8db8e8}
+.option input{width:auto;margin-top:4px;accent-color:var(--blue)}
+.option.selected{background:#edf5ff;border-color:var(--blue)}
+.option.correct{background:#e9f8f1;border-color:#70c5a2}
+.option.wrong{background:#fff0f0;border-color:#e6a0a0}
+.feedback{font-size:.9rem;margin-top:12px;padding:11px;border-radius:10px;background:#f4f7fb}
+.actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:space-between;margin-top:20px}
+.result{text-align:center;padding:25px}
+.score{font-size:4rem;font-weight:900;color:var(--blue);line-height:1.1;margin:10px}
+.result-grid{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:18px 0}
+.result-grid div{background:#f2f7fd;padding:13px 18px;border-radius:12px;min-width:120px}
+.result-grid strong{display:block;font-size:1.35rem}
+.note{font-size:.85rem;color:var(--muted);line-height:1.6}
+footer{text-align:center;color:#64748b;font-size:.82rem;padding:22px 5px}
+@media(max-width:560px){body{padding:14px 10px}.hero,.card{padding:20px}.actions .btn{width:100%}}
+</style>
+</head>
+<body>
+<div class="container">
+  <header class="hero">
+    <span class="tag">Quiz Koding dan Kecerdasan Artificial • KELAS 7</span>
+    <h1>Pengenalan dan Pembuatan Flowchart<br>Challenge! 👋</h1>
+    <p>Kenali simbol, pahami alur, dan susun langkah penyelesaian masalah melalui flowchart.</p>
+    <div class="flow-art" aria-label="Contoh simbol flowchart">
+      <span class="shape oval">MULAI</span><span class="arrow">→</span>
+      <span class="shape rect">PROSES</span><span class="arrow">→</span>
+      <span class="shape diamond">KEPUTUSAN</span><span class="arrow">→</span>
+      <span class="shape oval">SELESAI</span>
+    </div>
+  </header>
+
+  <section class="card" id="start">
+    <h2>👋 Selamat Datang, di Quiz Koding dan Kecerdasan Artificial Oleh Miss Merisa Lumban Toruan!</h2>
+    <p>Isi identitas terlebih dahulu, lalu tekan tombol mulai untuk mengerjakan kuis.</p>
+    <label for="studentName">Nama lengkap</label>
+    <input id="studentName" type="text" placeholder="Tuliskan nama kamu" autocomplete="name">
+    <label for="studentClass">Kelas</label>
+    <input id="studentClass" type="text" placeholder="Contoh: VII-A">
+    <div class="meta">
+      <span class="pill">📝 10 soal pilihan ganda</span>
+      <span class="pill">⭐ 100 poin</span>
+      <span class="pill">⏱️ 20 menit</span>
+    </div>
+    <p class="note">Petunjuk: Pilih satu jawaban paling tepat untuk setiap soal. Setiap jawaban benar bernilai 10 poin.</p>
+    <button class="btn primary" id="startBtn">Mulai Kuis →</button>
+  </section>
+
+  <section class="card hidden" id="quiz">
+    <div class="topline">
+      <div><strong id="welcome"></strong><div class="note">Pilih jawaban yang paling tepat.</div></div>
+      <span class="pill" id="counter">0 dari 10 dijawab</span>
+    </div>
+    <div class="progress"><span id="progressBar"></span></div>
+    <div id="questions"></div>
+    <div class="actions">
+      <button class="btn secondary" id="resetAnswers">Hapus semua jawaban</button>
+      <button class="btn success" id="submitBtn" disabled>Periksa Jawaban ✓</button>
+    </div>
+    <p class="note" id="reminder">Semua soal harus dijawab sebelum hasil dapat ditampilkan.</p>
+  </section>
+
+  <section class="card hidden result" id="result" aria-live="polite">
+    <div style="font-size:3rem">🏆</div>
+    <h2>Kuis Selesai!</h2>
+    <p id="resultName"></p>
+    <div class="score" id="score">0</div>
+    <strong id="message"></strong>
+    <div class="result-grid">
+      <div><strong id="correctCount">0</strong><span>Benar</span></div>
+      <div><strong id="wrongCount">0</strong><span>Belum tepat</span></div>
+      <div><strong>10</strong><span>Total soal</span></div>
+    </div>
+    <h2 style="text-align:left;margin-top:25px">📖 Pembahasan Jawaban</h2>
+    <div id="review" style="text-align:left"></div>
+    <button class="btn danger" id="retryBtn">↻ Ulangi Kuis</button>
+    <button class="btn secondary" id="printBtn">Cetak Hasil</button>
+  </section>
+  <footer>Materi Koding dan Kecerdasan Artifisial • Pengenalan dan Pembuatan Flowchart • Kelas 7</footer>
+</div>
+
+<script>
+const data = [
+ {q:"Apa yang dimaksud dengan flowchart?",o:["Bahasa pemrograman komputer","Diagram yang menggambarkan urutan langkah suatu proses","Aplikasi untuk menggambar","Perangkat keras komputer"],a:1,e:"Flowchart adalah diagram yang menggambarkan langkah-langkah atau alur suatu proses menggunakan simbol."},
+ {q:"Apa fungsi utama flowchart?",o:["Menghias tampilan komputer","Menghapus data","Menggambarkan alur penyelesaian masalah","Mempercepat koneksi internet"],a:2,e:"Flowchart membantu kita memahami, merencanakan, dan menjelaskan urutan penyelesaian masalah."},
+ {q:"Simbol yang digunakan untuk menandai MULAI dan SELESAI adalah ...",o:["Persegi panjang","Belah ketupat","Jajar genjang","Oval (Terminator)"],a:3,e:"Simbol terminator berbentuk oval atau kapsul digunakan untuk menunjukkan awal dan akhir proses."},
+ {q:"Simbol persegi panjang pada flowchart memiliki arti ...",o:["Proses","Keputusan","Input/Output","Mulai/Selesai"],a:0,e:"Persegi panjang menunjukkan proses atau instruksi yang dikerjakan."},
+ {q:"Simbol belah ketupat digunakan untuk menunjukkan ...",o:["Proses perhitungan","Keputusan atau percabangan","Awal program","Arah aliran"],a:1,e:"Belah ketupat digunakan untuk keputusan, biasanya menghasilkan cabang seperti Ya/Tidak."},
+ {q:"Simbol jajar genjang digunakan untuk ...",o:["Menunjukkan keputusan","Menunjukkan proses","Input dan output data","Mengakhiri program"],a:2,e:"Jajar genjang menggambarkan masukan (input) atau keluaran (output) data."},
+ {q:"Apa fungsi tanda panah dalam flowchart?",o:["Menunjukkan arah aliran proses","Menunjukkan akhir program","Menampilkan data","Membuat keputusan"],a:0,e:"Garis alir atau panah menunjukkan arah dan urutan langkah dalam flowchart."},
+ {q:"Urutan struktur flowchart sederhana yang benar adalah ...",o:["Proses – Mulai – Selesai","Selesai – Mulai – Proses","Keputusan – Selesai – Mulai","Mulai – Proses – Selesai"],a:3,e:"Alur sederhana dimulai dari Mulai, dilanjutkan proses, lalu diakhiri dengan Selesai."},
+ {q:"Dalam flowchart menghitung luas persegi, langkah menghitung sisi × sisi termasuk simbol ...",o:["Terminator","Proses","Keputusan","Input/Output"],a:1,e:"Mengalikan sisi dengan sisi adalah kegiatan pengolahan data, sehingga memakai simbol proses."},
+ {q:"Untuk memeriksa apakah bilangan ganjil atau genap, simbol yang tepat adalah ...",o:["Oval","Jajar genjang","Belah ketupat","Persegi panjang"],a:2,e:"Pemeriksaan sisa pembagian menghasilkan keputusan/cabang, sehingga menggunakan simbol belah ketupat."}
+];
+const $ = id => document.getElementById(id);
+let answers = Array(data.length).fill(null);
+let submitted = false;
+function renderQuestions(){
+  $("questions").innerHTML = data.map((item,i)=>`
+    <article class="question" id="question-${i}">
+      <span class="qnum">SOAL ${i+1} • 10 POIN</span>
+      <h3>${item.q}</h3>
+      ${item.o.map((option,j)=>`
+        <label class="option" id="option-${i}-${j}">
+          <input type="radio" name="q${i}" value="${j}" ${answers[i]===j?"checked":""}>
+          <span><b>${"ABCD"[j]}.</b> ${option}</span>
+        </label>`).join("")}
+      <div class="feedback hidden" id="feedback-${i}"></div>
+    </article>`).join("");
+  document.querySelectorAll('input[type="radio"]').forEach(input=>{
+    input.addEventListener("change",e=>{
+      const i=Number(e.target.name.slice(1));
+      answers[i]=Number(e.target.value);
+      updateProgress();
+    });
+  });
+}
+function updateProgress(){
+  const count=answers.filter(v=>v!==null).length;
+  $("counter").textContent=`${count} dari ${data.length} dijawab`;
+  $("progressBar").style.width=`${count/data.length*100}%`;
+  $("submitBtn").disabled=count!==data.length || submitted;
+  $("reminder").textContent=count===data.length?"Semua soal sudah dijawab. Kamu siap melihat hasil!":"Semua soal harus dijawab sebelum hasil dapat ditampilkan.";
+}
+$("startBtn").addEventListener("click",()=>{
+  const name=$("studentName").value.trim(), cls=$("studentClass").value.trim();
+  if(!name || !cls){alert("Silakan isi nama lengkap dan kelas terlebih dahulu.");return;}
+  $("welcome").textContent=`Semangat mengerjakan, ${name}!`;
+  $("start").classList.add("hidden");$("quiz").classList.remove("hidden");
+  renderQuestions();updateProgress();window.scrollTo({top:0,behavior:"smooth"});
+});
+$("resetAnswers").addEventListener("click",()=>{
+  if(submitted)return;
+  if(confirm("Hapus semua jawaban yang sudah dipilih?")){answers=Array(data.length).fill(null);renderQuestions();updateProgress();}
+});
+$("submitBtn").addEventListener("click",()=>{
+  if(answers.some(v=>v===null))return;
+  submitted=true;
+  const correct=data.filter((q,i)=>answers[i]===q.a).length;
+  const score=correct*10;
+  $("score").textContent=score;
+  $("resultName").textContent=`Nama: ${$("studentName").value.trim()} • Kelas: ${$("studentClass").value.trim()}`;
+  $("correctCount").textContent=correct;$("wrongCount").textContent=data.length-correct;
+  $("message").textContent=score>=80?"Hebat! Pemahamanmu sangat baik! 🌟":score>=60?"Bagus! Terus berlatih agar semakin mahir. 💪":"Tetap semangat! Pelajari kembali simbol dan alur flowchart. 📚";
+  $("review").innerHTML=data.map((q,i)=>`
+    <div class="question">
+      <b>${i+1}. ${q.q}</b>
+      <p style="margin:8px 0;color:${answers[i]===q.a?'#12845d':'#c34848'}">
+        Jawabanmu: ${"ABCD"[answers[i]]}. ${q.o[answers[i]]}
+        ${answers[i]===q.a?"✓ Benar":"✗ Belum tepat"}
+      </p>
+      <p><b>Kunci jawaban:</b> ${"ABCD"[q.a]}. ${q.o[q.a]}</p>
+      <p class="note">${q.e}</p>
+    </div>`).join("");
+  $("quiz").classList.add("hidden");$("result").classList.remove("hidden");
+  window.scrollTo({top:0,behavior:"smooth"});
+});
+$("retryBtn").addEventListener("click",()=>{
+  answers=Array(data.length).fill(null);submitted=false;
+  $("result").classList.add("hidden");$("start").classList.remove("hidden");
+  $("studentName").value="";$("studentClass").value="";
+  window.scrollTo({top:0,behavior:"smooth"});
+});
+$("printBtn").addEventListener("click",()=>window.print());
+</script>
+</body>
+</html>
