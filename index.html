@@ -1,205 +1,1036 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Quiz Flowchart Kelas 7 | Koding dan Kecerdasan Artificial</title>
-<style>
-:root{--navy:#173b68;--blue:#2878d0;--sky:#eaf4ff;--ink:#1e293b;--muted:#64748b;--green:#15966a;--red:#dc5656}
-*{box-sizing:border-box}
-body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:linear-gradient(135deg,#e8f3ff,#f7f3ff 55%,#e9fbf5);min-height:100vh;padding:24px 14px}
-.container{max-width:900px;margin:auto}
-.hero{background:linear-gradient(125deg,#15365f,#2878d0);color:white;border-radius:24px;padding:30px;position:relative;overflow:hidden;box-shadow:0 14px 35px #17457725}
-.hero:after{content:"";position:absolute;width:230px;height:230px;border:35px solid #ffffff15;border-radius:50%;right:-60px;top:-95px}
-.tag{display:inline-block;background:#ffffff20;border:1px solid #ffffff45;padding:6px 12px;border-radius:99px;font-size:.8rem;font-weight:700;letter-spacing:.06em}
-h1{font-size:clamp(2rem,5vw,3.1rem);line-height:1.08;margin:17px 0 10px}
-.hero p{margin:0;color:#e2efff;max-width:600px}
-.flow-art{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin-top:24px}
-.shape{padding:9px 13px;background:#fff;color:#194577;font-weight:800;font-size:.8rem;box-shadow:0 4px 12px #001b3c25}
-.oval{border-radius:99px}.rect{border-radius:7px}.diamond{transform:skew(-12deg);border-radius:5px}
-.arrow{font-weight:900;color:#fff}
-.card{background:#fff;border:1px solid #e3eaf3;border-radius:20px;padding:24px;margin-top:20px;box-shadow:0 10px 28px #183a6010}
-h2{margin:0 0 15px;font-size:1.35rem}
-label{display:block;font-size:.9rem;font-weight:700;margin:13px 0 7px}
-input{width:100%;padding:13px 14px;border:1px solid #cbd5e1;border-radius:11px;font:inherit;outline:none}
-input:focus{border-color:var(--blue);box-shadow:0 0 0 3px #2878d020}
-.btn{border:0;border-radius:12px;padding:13px 19px;font:inherit;font-weight:800;cursor:pointer;transition:.18s}
-.btn:hover{transform:translateY(-1px);filter:brightness(.97)}
-.primary{background:var(--blue);color:#fff}.secondary{background:#eaf2fc;color:#215b9b}
-button:disabled{opacity:.5;cursor:not-allowed;transform:none}
-.meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
-.pill{background:#f0f6ff;color:#245d9b;border-radius:10px;padding:9px 12px;font-size:.85rem;font-weight:700}
-.hidden{display:none!important}
-.topline{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
-.progress{height:9px;background:#e8eef6;border-radius:99px;overflow:hidden;margin:14px 0 22px}
-.progress span{height:100%;display:block;width:0;background:linear-gradient(90deg,#2878d0,#26b887);transition:width .25s}
-.question{border:1px solid #e4eaf2;border-radius:16px;padding:18px;margin:16px 0}
-.qnum{display:inline-block;background:#eaf4ff;color:#2265ad;border-radius:8px;padding:5px 9px;font-size:.78rem;font-weight:800}
-.question h3{font-size:1.05rem;line-height:1.5;margin:12px 0}
-.option{display:flex;gap:10px;align-items:flex-start;padding:11px 12px;margin:8px 0;border:1px solid #dce4ee;border-radius:11px;cursor:pointer;transition:.15s}
-.option:hover{background:#f5f9ff;border-color:#8db8e8}
-.option input{width:auto;margin-top:4px;accent-color:var(--blue)}
-.option.selected{background:#edf5ff;border-color:var(--blue)}
-.option.correct{background:#e9f8f1;border-color:#70c5a2}
-.option.wrong{background:#fff0f0;border-color:#e6a0a0}
-.feedback{font-size:.9rem;margin-top:12px;padding:11px;border-radius:10px;background:#f4f7fb}
-.actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:space-between;margin-top:20px}
-.result{text-align:center;padding:25px}
-.score{font-size:4rem;font-weight:900;color:var(--blue);line-height:1.1;margin:10px}
-.result-grid{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:18px 0}
-.result-grid div{background:#f2f7fd;padding:13px 18px;border-radius:12px;min-width:120px}
-.result-grid strong{display:block;font-size:1.35rem}
-.note{font-size:.85rem;color:var(--muted);line-height:1.6}
-footer{text-align:center;color:#64748b;font-size:.82rem;padding:22px 5px}
-@media(max-width:560px){body{padding:14px 10px}.hero,.card{padding:20px}.actions .btn{width:100%}}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kuis Interaktif: Sistem Pernafasan Manusia</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        med: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                            700: '#0f766e',
+                            800: '#115e59',
+                            900: '#134e4a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body>
-<div class="container">
-  <header class="hero">
-    <span class="tag">Quiz Koding dan Kecerdasan Artificial • KELAS 7</span>
-    <h1>Pengenalan dan Pembuatan Flowchart<br>Challenge! 👋</h1>
-    <p>Kenali simbol, pahami alur, dan susun langkah penyelesaian masalah melalui flowchart.</p>
-    <div class="flow-art" aria-label="Contoh simbol flowchart">
-      <span class="shape oval">MULAI</span><span class="arrow">→</span>
-      <span class="shape rect">PROSES</span><span class="arrow">→</span>
-      <span class="shape diamond">KEPUTUSAN</span><span class="arrow">→</span>
-      <span class="shape oval">SELESAI</span>
-    </div>
-  </header>
+<body class="bg-slate-50 text-slate-800 font-sans min-h-screen flex flex-col antialiased selection:bg-teal-200 selection:text-teal-900">
 
-  <section class="card" id="start">
-    <h2>👋 Selamat Datang, di Quiz Koding dan Kecerdasan Artificial Oleh Miss Merisa Lumban Toruan!</h2>
-    <p>Isi identitas terlebih dahulu, lalu tekan tombol mulai untuk mengerjakan kuis.</p>
-    <label for="studentName">Nama lengkap</label>
-    <input id="studentName" type="text" placeholder="Tuliskan nama kamu" autocomplete="name">
-    <label for="studentClass">Kelas</label>
-    <input id="studentClass" type="text" placeholder="Contoh: VII-A">
-    <div class="meta">
-      <span class="pill">📝 10 soal pilihan ganda</span>
-      <span class="pill">⭐ 100 poin</span>
-      <span class="pill">⏱️ 20 menit</span>
-    </div>
-    <p class="note">Petunjuk: Pilih satu jawaban paling tepat untuk setiap soal. Setiap jawaban benar bernilai 10 poin.</p>
-    <button class="btn primary" id="startBtn">Mulai Kuis →</button>
-  </section>
+    <!-- Navbar / Top Accent -->
+    <header class="bg-gradient-to-r from-teal-700 via-teal-600 to-cyan-700 text-white shadow-md sticky top-0 z-30">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <!-- Ikon Paru-Paru SVG -->
+                <div class="bg-white/15 p-2 rounded-xl backdrop-blur-sm">
+                    <svg class="w-7 h-7 text-teal-100" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v7m0 0c-2.5 0-5.5 1.5-6.5 5.5-.8 3.2.5 5.5 3 5.5 2 0 3.5-1.5 3.5-4V10zm0 0c2.5 0 5.5 1.5 6.5 5.5.8 3.2-.5 5.5-3 5.5-2 0-3.5-1.5-3.5-4V10z" />
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="text-lg sm:text-xl font-bold tracking-tight leading-tight">Biologi Interaktif</h1>
+                    <p class="text-xs text-teal-100 font-medium">Sistem Pernafasan Manusia</p>
+                </div>
+            </div>
+            
+            <!-- Info Siswa Aktif (Muncul saat Kuis berlangsung) -->
+            <div id="header-student-info" class="hidden text-right bg-white/10 px-3.5 py-1.5 rounded-xl border border-white/20">
+                <p id="header-name" class="text-xs sm:text-sm font-semibold truncate max-w-[140px] sm:max-w-[220px]"></p>
+                <p id="header-class" class="text-[11px] text-teal-100 font-medium"></p>
+            </div>
+        </div>
+    </header>
 
-  <section class="card hidden" id="quiz">
-    <div class="topline">
-      <div><strong id="welcome"></strong><div class="note">Pilih jawaban yang paling tepat.</div></div>
-      <span class="pill" id="counter">0 dari 10 dijawab</span>
-    </div>
-    <div class="progress"><span id="progressBar"></span></div>
-    <div id="questions"></div>
-    <div class="actions">
-      <button class="btn secondary" id="resetAnswers">Hapus semua jawaban</button>
-      <button class="btn success" id="submitBtn" disabled>Periksa Jawaban ✓</button>
-    </div>
-    <p class="note" id="reminder">Semua soal harus dijawab sebelum hasil dapat ditampilkan.</p>
-  </section>
+    <!-- Konten Utama -->
+    <main class="flex-grow max-w-5xl w-full mx-auto px-4 sm:px-6 py-6 sm:py-10">
 
-  <section class="card hidden result" id="result" aria-live="polite">
-    <div style="font-size:3rem">🏆</div>
-    <h2>Kuis Selesai!</h2>
-    <p id="resultName"></p>
-    <div class="score" id="score">0</div>
-    <strong id="message"></strong>
-    <div class="result-grid">
-      <div><strong id="correctCount">0</strong><span>Benar</span></div>
-      <div><strong id="wrongCount">0</strong><span>Belum tepat</span></div>
-      <div><strong>10</strong><span>Total soal</span></div>
-    </div>
-    <h2 style="text-align:left;margin-top:25px">📖 Pembahasan Jawaban</h2>
-    <div id="review" style="text-align:left"></div>
-    <button class="btn danger" id="retryBtn">↻ Ulangi Kuis</button>
-    <button class="btn secondary" id="printBtn">Cetak Hasil</button>
-  </section>
-  <footer>Materi Koding dan Kecerdasan Artifisial • Pengenalan dan Pembuatan Flowchart • Kelas 7</footer>
-</div>
+        <!-- ========================================================= -->
+        <!-- 1. HALAMAN AWAL (IDENTITAS SISWA)                         -->
+        <!-- ========================================================= -->
+        <section id="screen-welcome" class="max-w-xl mx-auto">
+            <div class="bg-white rounded-3xl shadow-xl shadow-slate-200/60 border border-slate-100 overflow-hidden">
+                <!-- Banner Dekoratif -->
+                <div class="bg-gradient-to-br from-teal-50 to-cyan-50 p-6 sm:p-8 border-b border-teal-100/80 text-center">
+                    <span class="inline-block px-3 py-1 bg-teal-100 text-teal-800 text-xs font-bold uppercase tracking-wider rounded-full mb-3">
+                        Evaluasi Pembelajaran
+                    </span>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-2">
+                        Kuis Sistem Pernafasan
+                    </h2>
+                    <p class="text-sm sm:text-base text-slate-600 leading-relaxed">
+                        Uji pemahamanmu mengenai organ pernafasan, mekanisme inspirasi &amp; ekspirasi, kapasitas paru-paru, serta gangguan sistem respirasi.
+                    </p>
+                </div>
 
-<script>
-const data = [
- {q:"Apa yang dimaksud dengan flowchart?",o:["Bahasa pemrograman komputer","Diagram yang menggambarkan urutan langkah suatu proses","Aplikasi untuk menggambar","Perangkat keras komputer"],a:1,e:"Flowchart adalah diagram yang menggambarkan langkah-langkah atau alur suatu proses menggunakan simbol."},
- {q:"Apa fungsi utama flowchart?",o:["Menghias tampilan komputer","Menghapus data","Menggambarkan alur penyelesaian masalah","Mempercepat koneksi internet"],a:2,e:"Flowchart membantu kita memahami, merencanakan, dan menjelaskan urutan penyelesaian masalah."},
- {q:"Simbol yang digunakan untuk menandai MULAI dan SELESAI adalah ...",o:["Persegi panjang","Belah ketupat","Jajar genjang","Oval (Terminator)"],a:3,e:"Simbol terminator berbentuk oval atau kapsul digunakan untuk menunjukkan awal dan akhir proses."},
- {q:"Simbol persegi panjang pada flowchart memiliki arti ...",o:["Proses","Keputusan","Input/Output","Mulai/Selesai"],a:0,e:"Persegi panjang menunjukkan proses atau instruksi yang dikerjakan."},
- {q:"Simbol belah ketupat digunakan untuk menunjukkan ...",o:["Proses perhitungan","Keputusan atau percabangan","Awal program","Arah aliran"],a:1,e:"Belah ketupat digunakan untuk keputusan, biasanya menghasilkan cabang seperti Ya/Tidak."},
- {q:"Simbol jajar genjang digunakan untuk ...",o:["Menunjukkan keputusan","Menunjukkan proses","Input dan output data","Mengakhiri program"],a:2,e:"Jajar genjang menggambarkan masukan (input) atau keluaran (output) data."},
- {q:"Apa fungsi tanda panah dalam flowchart?",o:["Menunjukkan arah aliran proses","Menunjukkan akhir program","Menampilkan data","Membuat keputusan"],a:0,e:"Garis alir atau panah menunjukkan arah dan urutan langkah dalam flowchart."},
- {q:"Urutan struktur flowchart sederhana yang benar adalah ...",o:["Proses – Mulai – Selesai","Selesai – Mulai – Proses","Keputusan – Selesai – Mulai","Mulai – Proses – Selesai"],a:3,e:"Alur sederhana dimulai dari Mulai, dilanjutkan proses, lalu diakhiri dengan Selesai."},
- {q:"Dalam flowchart menghitung luas persegi, langkah menghitung sisi × sisi termasuk simbol ...",o:["Terminator","Proses","Keputusan","Input/Output"],a:1,e:"Mengalikan sisi dengan sisi adalah kegiatan pengolahan data, sehingga memakai simbol proses."},
- {q:"Untuk memeriksa apakah bilangan ganjil atau genap, simbol yang tepat adalah ...",o:["Oval","Jajar genjang","Belah ketupat","Persegi panjang"],a:2,e:"Pemeriksaan sisa pembagian menghasilkan keputusan/cabang, sehingga menggunakan simbol belah ketupat."}
-];
-const $ = id => document.getElementById(id);
-let answers = Array(data.length).fill(null);
-let submitted = false;
-function renderQuestions(){
-  $("questions").innerHTML = data.map((item,i)=>`
-    <article class="question" id="question-${i}">
-      <span class="qnum">SOAL ${i+1} • 10 POIN</span>
-      <h3>${item.q}</h3>
-      ${item.o.map((option,j)=>`
-        <label class="option" id="option-${i}-${j}">
-          <input type="radio" name="q${i}" value="${j}" ${answers[i]===j?"checked":""}>
-          <span><b>${"ABCD"[j]}.</b> ${option}</span>
-        </label>`).join("")}
-      <div class="feedback hidden" id="feedback-${i}"></div>
-    </article>`).join("");
-  document.querySelectorAll('input[type="radio"]').forEach(input=>{
-    input.addEventListener("change",e=>{
-      const i=Number(e.target.name.slice(1));
-      answers[i]=Number(e.target.value);
-      updateProgress();
-    });
-  });
-}
-function updateProgress(){
-  const count=answers.filter(v=>v!==null).length;
-  $("counter").textContent=`${count} dari ${data.length} dijawab`;
-  $("progressBar").style.width=`${count/data.length*100}%`;
-  $("submitBtn").disabled=count!==data.length || submitted;
-  $("reminder").textContent=count===data.length?"Semua soal sudah dijawab. Kamu siap melihat hasil!":"Semua soal harus dijawab sebelum hasil dapat ditampilkan.";
-}
-$("startBtn").addEventListener("click",()=>{
-  const name=$("studentName").value.trim(), cls=$("studentClass").value.trim();
-  if(!name || !cls){alert("Silakan isi nama lengkap dan kelas terlebih dahulu.");return;}
-  $("welcome").textContent=`Semangat mengerjakan, ${name}!`;
-  $("start").classList.add("hidden");$("quiz").classList.remove("hidden");
-  renderQuestions();updateProgress();window.scrollTo({top:0,behavior:"smooth"});
-});
-$("resetAnswers").addEventListener("click",()=>{
-  if(submitted)return;
-  if(confirm("Hapus semua jawaban yang sudah dipilih?")){answers=Array(data.length).fill(null);renderQuestions();updateProgress();}
-});
-$("submitBtn").addEventListener("click",()=>{
-  if(answers.some(v=>v===null))return;
-  submitted=true;
-  const correct=data.filter((q,i)=>answers[i]===q.a).length;
-  const score=correct*10;
-  $("score").textContent=score;
-  $("resultName").textContent=`Nama: ${$("studentName").value.trim()} • Kelas: ${$("studentClass").value.trim()}`;
-  $("correctCount").textContent=correct;$("wrongCount").textContent=data.length-correct;
-  $("message").textContent=score>=80?"Hebat! Pemahamanmu sangat baik! 🌟":score>=60?"Bagus! Terus berlatih agar semakin mahir. 💪":"Tetap semangat! Pelajari kembali simbol dan alur flowchart. 📚";
-  $("review").innerHTML=data.map((q,i)=>`
-    <div class="question">
-      <b>${i+1}. ${q.q}</b>
-      <p style="margin:8px 0;color:${answers[i]===q.a?'#12845d':'#c34848'}">
-        Jawabanmu: ${"ABCD"[answers[i]]}. ${q.o[answers[i]]}
-        ${answers[i]===q.a?"✓ Benar":"✗ Belum tepat"}
-      </p>
-      <p><b>Kunci jawaban:</b> ${"ABCD"[q.a]}. ${q.o[q.a]}</p>
-      <p class="note">${q.e}</p>
-    </div>`).join("");
-  $("quiz").classList.add("hidden");$("result").classList.remove("hidden");
-  window.scrollTo({top:0,behavior:"smooth"});
-});
-$("retryBtn").addEventListener("click",()=>{
-  answers=Array(data.length).fill(null);submitted=false;
-  $("result").classList.add("hidden");$("start").classList.remove("hidden");
-  $("studentName").value="";$("studentClass").value="";
-  window.scrollTo({top:0,behavior:"smooth"});
-});
-$("printBtn").addEventListener("click",()=>window.print());
-</script>
+                <!-- Informasi Kuis -->
+                <div class="grid grid-cols-3 divide-x divide-slate-100 border-b border-slate-100 bg-slate-50/50 text-center py-3.5">
+                    <div>
+                        <p class="text-xs text-slate-500 font-medium">Jumlah Soal</p>
+                        <p class="text-sm sm:text-base font-bold text-slate-800">20 Soal</p>
+                    </div>
+                    <div>
+                        <p class="text-xs text-slate-500 font-medium">Tipe Soal</p>
+                        <p class="text-sm sm:text-base font-bold text-slate-800">Pilihan Ganda</p>
+                    </div>
+                    <div>
+                        <p class="text-xs text-slate-500 font-medium">Skala Nilai</p>
+                        <p class="text-sm sm:text-base font-bold text-teal-700">0 – 100</p>
+                    </div>
+                </div>
+
+                <!-- Form Identitas -->
+                <form id="identity-form" class="p-6 sm:p-8 space-y-5" novalidate>
+                    <div>
+                        <label for="student-name" class="block text-sm font-semibold text-slate-700 mb-1.5">
+                            Nama Lengkap <span class="text-rose-500">*</span>
+                        </label>
+                        <input type="text" id="student-name" placeholder="Contoh: Budi Santoso" autocomplete="off"
+                            class="w-full px-4 py-3 rounded-xl border border-slate-300 text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition text-sm sm:text-base">
+                        <p id="error-name" class="hidden text-xs text-rose-600 font-medium mt-1.5">Nama lengkap wajib diisi.</p>
+                    </div>
+
+                    <div>
+                        <label for="student-class" class="block text-sm font-semibold text-slate-700 mb-1.5">
+                            Kelas <span class="text-rose-500">*</span>
+                        </label>
+                        <input type="text" id="student-class" list="class-suggestions" placeholder="Contoh: VIII A atau XI IPA 1" autocomplete="off"
+                            class="w-full px-4 py-3 rounded-xl border border-slate-300 text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition text-sm sm:text-base">
+                        <!-- Pilihan cepat namun tetap fleksibel diketik manual -->
+                        <datalist id="class-suggestions">
+                            <option value="VIII A">
+                            <option value="VIII B">
+                            <option value="VIII C">
+                            <option value="XI IPA 1">
+                            <option value="XI IPA 2">
+                            <option value="XI MIPA 1">
+                        </datalist>
+                        <p id="error-class" class="hidden text-xs text-rose-600 font-medium mt-1.5">Kelas wajib diisi.</p>
+                    </div>
+
+                    <div class="pt-2">
+                        <button type="submit" id="btn-start-quiz" disabled
+                            class="w-full py-3.5 px-6 rounded-xl font-bold text-white bg-slate-300 cursor-not-allowed transition-all duration-200 flex items-center justify-center space-x-2 text-base shadow-sm">
+                            <span>Mulai Kuis</span>
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                            </svg>
+                        </button>
+                        <p class="text-center text-xs text-slate-400 mt-3">
+                            Isi Nama Lengkap dan Kelas terlebih dahulu untuk mengaktifkan tombol mulai.
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- ========================================================= -->
+        <!-- 2. HALAMAN KUIS INTERAKTIF                                -->
+        <!-- ========================================================= -->
+        <section id="screen-quiz" class="hidden">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+                
+                <!-- Kolom Kiri / Utama: Kartu Soal -->
+                <div class="lg:col-span-8 bg-white rounded-3xl shadow-lg shadow-slate-200/50 border border-slate-100 p-5 sm:p-8">
+                    <!-- Header Soal & Progress Bar -->
+                    <div class="mb-6">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-2.5">
+                            <span id="question-counter" class="text-sm font-bold text-teal-700 bg-teal-50 px-3 py-1 rounded-lg border border-teal-100">
+                                Soal 1 dari 20
+                            </span>
+                            <span id="question-topic" class="text-xs font-semibold text-slate-500 bg-slate-100 px-3 py-1 rounded-lg">
+                                Topik: Organ Pernafasan
+                            </span>
+                        </div>
+                        <!-- Progress Bar -->
+                        <div class="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden">
+                            <div id="quiz-progress-bar" class="bg-gradient-to-r from-teal-500 to-cyan-500 h-full rounded-full transition-all duration-300" style="width: 5%"></div>
+                        </div>
+                    </div>
+
+                    <!-- Teks Pertanyaan -->
+                    <div class="mb-6">
+                        <h3 id="question-text" class="text-base sm:text-lg font-semibold text-slate-900 leading-relaxed">
+                            Memuat pertanyaan...
+                        </h3>
+                    </div>
+
+                    <!-- Opsi Pilihan Ganda (A, B, C, D) -->
+                    <div id="options-container" class="space-y-3 mb-8">
+                        <!-- Diisi secara dinamis melalui JS -->
+                    </div>
+
+                    <!-- Navigasi Bawah: Sebelumnya, Selanjutnya, Selesai -->
+                    <div class="flex flex-wrap items-center justify-between gap-3 pt-5 border-t border-slate-100">
+                        <button type="button" id="btn-prev"
+                            class="px-4 py-2.5 rounded-xl text-sm font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 disabled:opacity-40 disabled:cursor-not-allowed transition flex items-center space-x-1.5">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+                            </svg>
+                            <span>Sebelumnya</span>
+                        </button>
+
+                        <div class="flex items-center space-x-2.5 ml-auto">
+                            <button type="button" id="btn-next"
+                                class="px-5 py-2.5 rounded-xl text-sm font-semibold text-white bg-teal-600 hover:bg-teal-700 transition flex items-center space-x-1.5 shadow-sm">
+                                <span>Selanjutnya</span>
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                                </svg>
+                            </button>
+
+                            <button type="button" id="btn-submit-quiz"
+                                class="px-5 py-2.5 rounded-xl text-sm font-bold text-white bg-emerald-600 hover:bg-emerald-700 transition flex items-center space-x-1.5 shadow-sm">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                </svg>
+                                <span>Selesai / Kumpulkan</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kolom Kanan: Panel Navigasi Nomor Soal -->
+                <aside class="lg:col-span-4 bg-white rounded-3xl shadow-lg shadow-slate-200/50 border border-slate-100 p-5 sm:p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h4 class="text-sm font-bold text-slate-800">Navigasi Nomor Soal</h4>
+                        <span id="answered-status-badge" class="text-xs font-semibold text-teal-700 bg-teal-50 px-2.5 py-1 rounded-lg">
+                            0 / 20 Terjawab
+                        </span>
+                    </div>
+
+                    <!-- Grid 20 Nomor -->
+                    <div id="question-nav-grid" class="grid grid-cols-5 gap-2 mb-5">
+                        <!-- Tombol nomor 1-20 di-render di sini -->
+                    </div>
+
+                    <!-- Legenda Status -->
+                    <div class="space-y-2 pt-4 border-t border-slate-100 text-xs text-slate-600">
+                        <div class="flex items-center space-x-2">
+                            <span class="w-3.5 h-3.5 rounded bg-teal-600 inline-block"></span>
+                            <span>Soal sedang dibuka</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <span class="w-3.5 h-3.5 rounded bg-emerald-100 border border-emerald-400 inline-block"></span>
+                            <span>Sudah dijawab</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <span class="w-3.5 h-3.5 rounded bg-slate-100 border border-slate-300 inline-block"></span>
+                            <span>Belum dijawab</span>
+                        </div>
+                    </div>
+                </aside>
+
+            </div>
+        </section>
+
+        <!-- ========================================================= -->
+        <!-- 3. HALAMAN HASIL & PEMBAHASAN                             -->
+        <!-- ========================================================= -->
+        <section id="screen-result" class="hidden space-y-8">
+            <!-- Kartu Ringkasan Skor -->
+            <div class="bg-white rounded-3xl shadow-xl shadow-slate-200/60 border border-slate-100 overflow-hidden">
+                <div class="bg-gradient-to-r from-teal-700 to-cyan-700 p-6 sm:p-8 text-white text-center">
+                    <p class="text-xs sm:text-sm uppercase tracking-widest text-teal-100 font-semibold mb-1">Hasil Evaluasi Kuis</p>
+                    <h2 id="result-student-name" class="text-2xl sm:text-3xl font-extrabold mb-1">-</h2>
+                    <p id="result-student-class" class="text-sm sm:text-base text-teal-100 font-medium">Kelas: -</p>
+                </div>
+
+                <div class="p-6 sm:p-8">
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-center text-center">
+                        <!-- Skor Akhir -->
+                        <div class="md:col-span-2 bg-slate-50 rounded-2xl p-5 border border-slate-200/80">
+                            <p class="text-xs font-bold uppercase tracking-wider text-slate-500 mb-1">Skor Akhir Anda</p>
+                            <div class="flex items-baseline justify-center space-x-1">
+                                <span id="result-score" class="text-5xl sm:text-6xl font-black text-teal-700">0</span>
+                                <span class="text-lg font-bold text-slate-400">/ 100</span>
+                            </div>
+                            <div class="mt-3">
+                                <span id="result-predicate" class="inline-block px-3.5 py-1 rounded-full text-xs sm:text-sm font-bold bg-teal-100 text-teal-800">
+                                    Predikat: -
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Jawaban Benar -->
+                        <div class="bg-emerald-50/70 rounded-2xl p-5 border border-emerald-200">
+                            <div class="w-10 h-10 mx-auto bg-emerald-100 text-emerald-700 rounded-full flex items-center justify-center mb-2">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                </svg>
+                            </div>
+                            <p class="text-xs font-semibold text-emerald-800">Jawaban Benar</p>
+                            <p id="result-correct-count" class="text-3xl font-extrabold text-emerald-700 mt-1">0</p>
+                        </div>
+
+                        <!-- Jawaban Salah -->
+                        <div class="bg-rose-50/70 rounded-2xl p-5 border border-rose-200">
+                            <div class="w-10 h-10 mx-auto bg-rose-100 text-rose-700 rounded-full flex items-center justify-center mb-2">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                            </div>
+                            <p class="text-xs font-semibold text-rose-800">Jawaban Salah</p>
+                            <p id="result-wrong-count" class="text-3xl font-extrabold text-rose-700 mt-1">0</p>
+                        </div>
+                    </div>
+
+                    <!-- Tombol Ulangi Kuis -->
+                    <div class="mt-6 pt-6 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
+                        <p class="text-xs sm:text-sm text-slate-500 text-center sm:text-left">
+                            Pelajari kembali pembahasan lengkap setiap soal di bawah ini untuk memperkuat pemahamanmu.
+                        </p>
+                        <button type="button" id="btn-retry-quiz"
+                            class="w-full sm:w-auto px-6 py-3 rounded-xl bg-teal-600 hover:bg-teal-700 text-white font-bold text-sm transition flex items-center justify-center space-x-2 shadow-sm">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                            </svg>
+                            <span>Ulangi Kuis</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bagian Review & Pembahasan Lengkap 20 Soal -->
+            <div>
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+                    <h3 class="text-xl font-extrabold text-slate-900">Pembahasan &amp; Kunci Jawaban (20 Soal)</h3>
+                    <div class="flex space-x-2 text-xs font-semibold">
+                        <button type="button" onclick="filterReview('all')" id="filter-all" class="px-3 py-1.5 rounded-lg bg-teal-600 text-white transition">Semua (20)</button>
+                        <button type="button" onclick="filterReview('correct')" id="filter-correct" class="px-3 py-1.5 rounded-lg bg-white text-slate-600 border border-slate-200 hover:bg-slate-50 transition">Benar</button>
+                        <button type="button" onclick="filterReview('wrong')" id="filter-wrong" class="px-3 py-1.5 rounded-lg bg-white text-slate-600 border border-slate-200 hover:bg-slate-50 transition">Salah</button>
+                    </div>
+                </div>
+
+                <div id="review-list" class="space-y-4">
+                    <!-- Kartu review 20 soal di-render di sini -->
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ========================================================= -->
+    <!-- MODAL KONFIRMASI PENGUMPULAN (PENGGANTI confirm())         -->
+    <!-- ========================================================= -->
+    <div id="confirm-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-7 shadow-2xl border border-slate-100 transform transition-all">
+            <div class="w-12 h-12 rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center mb-4">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                </svg>
+            </div>
+            <h3 class="text-lg sm:text-xl font-bold text-slate-900 mb-2">Kumpulkan Jawaban Kuis?</h3>
+            <p id="modal-message" class="text-sm text-slate-600 leading-relaxed mb-6">
+                Apakah Anda yakin ingin mengakhiri kuis dan melihat hasil nilai Anda?
+            </p>
+            <div class="flex items-center justify-end space-x-3">
+                <button type="button" id="btn-modal-cancel"
+                    class="px-4 py-2.5 rounded-xl text-sm font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 transition">
+                    Periksa Lagi
+                </button>
+                <button type="button" id="btn-modal-confirm"
+                    class="px-5 py-2.5 rounded-xl text-sm font-bold text-white bg-teal-600 hover:bg-teal-700 transition shadow-sm">
+                    Ya, Kumpulkan
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200/80 py-5 text-center text-xs text-slate-500 mt-auto">
+        <p>Media Evaluasi Pembelajaran Biologi &bull; Materi Sistem Pernafasan Manusia</p>
+    </footer>
+
+    <!-- ========================================================= -->
+    <!-- LOGIKA JAVASCRIPT APLIKASI KUIS                           -->
+    <!-- ========================================================= -->
+    <script>
+        /**
+         * Bank Soal Sistem Pernafasan Manusia (20 Soal Pilihan Ganda)
+         * Mencakup: Organ pernafasan, mekanisme pernafasan dada & perut,
+         * volume udara pernafasan, pertukaran gas O2 & CO2, dan gangguan sistem pernafasan.
+         */
+        const quizQuestions = [
+            {
+                id: 1,
+                topic: "Organ Pernafasan",
+                question: "Urutan jalannya udara pernafasan dari luar ke dalam tubuh manusia yang benar adalah...",
+                options: [
+                    "Rongga hidung – laring – faring – trakea – bronkus – bronkiolus – alveolus",
+                    "Rongga hidung – faring – laring – trakea – bronkus – bronkiolus – alveolus",
+                    "Rongga hidung – faring – trakea – laring – bronkiolus – bronkus – alveolus",
+                    "Rongga hidung – trakea – faring – laring – bronkus – alveolus – bronkiolus"
+                ],
+                correctIndex: 1,
+                explanation: "Udara masuk melalui rongga hidung, lalu menuju faring (tekak), laring (pangkal tenggorokan), trakea (batang tenggorokan), bercabang ke bronkus, bronkiolus, dan berakhir di alveolus."
+            },
+            {
+                id: 2,
+                topic: "Organ Pernafasan",
+                question: "Di dalam rongga hidung terdapat selaput lendir (mukus) dan rambut-rambut halus (silia) yang berfungsi untuk...",
+                options: [
+                    "Mengikat oksigen agar langsung masuk ke pembuluh darah",
+                    "Menghasilkan suara saat udara melewati rongga hidung",
+                    "Menyaring debu/kotoran dan melembapkan udara yang masuk",
+                    "Mempercepat proses difusi karbon dioksida keluar tubuh"
+                ],
+                correctIndex: 2,
+                explanation: "Rambut hidung menyaring partikel kotoran berukuran besar, sedangkan selaput lendir memerangkap debu halus serta mengatur kelembapan dan suhu udara yang masuk."
+            },
+            {
+                id: 3,
+                topic: "Organ Pernafasan",
+                question: "Katup tulang rawan pada pangkal tenggorokan (laring) yang berfungsi menutup saluran pernafasan saat kita menelan makanan agar tidak tersedak disebut...",
+                options: [
+                    "Epiglotis",
+                    "Pleura",
+                    "Konka nasalis",
+                    "Pita suara"
+                ],
+                correctIndex: 0,
+                explanation: "Epiglotis adalah katup elastis di laring yang menutup trakea saat menelan sehingga makanan/minuman masuk ke kerongkongan (esofagus) dan tidak masuk ke saluran napas."
+            },
+            {
+                id: 4,
+                topic: "Organ Pernafasan",
+                question: "Dinding batang tenggorokan (trakea) tersusun atas cincin-cincin tulang rawan hialin berbentuk huruf C. Struktur ini bertujuan agar...",
+                options: [
+                    "Trakea dapat berkontraksi memompa udara ke paru-paru",
+                    "Saluran trakea tetap terbuka dan tidak kempis saat tekanan udara turun",
+                    "Terjadi pertukaran gas oksigen secara langsung di dinding trakea",
+                    "Makanan yang lewat di kerongkongan mudah dicerna"
+                ],
+                correctIndex: 1,
+                explanation: "Cincin tulang rawan menjaga struktur trakea tetap kokoh dan terbuka setiap saat sehingga aliran udara menuju dan dari paru-paru tidak terhambat."
+            },
+            {
+                id: 5,
+                topic: "Organ Pernafasan",
+                question: "Selaput tipis rangkap dua yang membungkus dan melindungi paru-paru dari gesekan dengan dinding rongga dada saat mengembang dan mengempis disebut...",
+                options: [
+                    "Perikardium",
+                    "Alveolus",
+                    "Pleura",
+                    "Diafragma"
+                ],
+                correctIndex: 2,
+                explanation: "Pleura adalah selaput pembungkus paru-paru yang berisi cairan limfa (cairan pleura) untuk mengurangi gesekan saat paru-paru mengembang dan mengempis."
+            },
+            {
+                id: 6,
+                topic: "Organ Pernafasan",
+                question: "Struktur di dalam paru-paru yang berbentuk gelembung-gelembung kecil berdinding sangat tipis dan dikelilingi banyak kapiler darah sebagai tempat pertukaran gas adalah...",
+                options: [
+                    "Bronkus",
+                    "Bronkiolus",
+                    "Alveolus",
+                    "Trakea"
+                ],
+                correctIndex: 2,
+                explanation: "Alveolus memiliki dinding selapis sel yang sangat tipis, lembap, dan kaya kapiler darah sehingga sangat efisien untuk pertukaran gas O2 dan CO2."
+            },
+            {
+                id: 7,
+                topic: "Mekanisme Pernafasan",
+                question: "Pada mekanisme pernafasan dada, proses inspirasi (menghirup udara) terjadi apabila...",
+                options: [
+                    "Otot antartulang rusuk luar berkontraksi, tulang rusuk terangkat, volume rongga dada membesar",
+                    "Otot antartulang rusuk luar berelaksasi, tulang rusuk turun, volume rongga dada mengecil",
+                    "Otot diafragma berkontraksi sehingga posisinya mendatar dan rongga dada mengecil",
+                    "Otot dinding perut berkontraksi menekan diafragma melengkung ke atas"
+                ],
+                correctIndex: 0,
+                explanation: "Inspirasi pernafasan dada dipicu kontraksi otot antartulang rusuk luar (interkostalis eksternus) yang mengangkat tulang rusuk, memperbesar rongga dada, menurunkan tekanan udara paru-paru sehingga udara luar masuk."
+            },
+            {
+                id: 8,
+                topic: "Mekanisme Pernafasan",
+                question: "Perhatikan pernyataan mekanisme pernafasan perut berikut:\n1) Otot diafragma berelaksasi\n2) Diafragma melengkung ke atas\n3) Volume rongga dada mengecil\n4) Tekanan udara dalam paru-paru membesar\nPeristiwa tersebut merupakan fase...",
+                options: [
+                    "Inspirasi pernafasan dada",
+                    "Ekspirasi pernafasan dada",
+                    "Inspirasi pernafasan perut",
+                    "Ekspirasi pernafasan perut"
+                ],
+                correctIndex: 3,
+                explanation: "Saat otot diafragma berelaksasi dan kembali melengkung ke atas, volume rongga dada mengecil dan tekanan udara di paru-paru meningkat lebih tinggi dari udara luar sehingga udara terdorong keluar (ekspirasi pernafasan perut)."
+            },
+            {
+                id: 9,
+                topic: "Mekanisme Pernafasan",
+                question: "Udara dari luar dapat masuk ke dalam paru-paru saat proses inspirasi karena...",
+                options: [
+                    "Tekanan udara di dalam paru-paru lebih besar daripada tekanan udara di luar tubuh",
+                    "Tekanan udara di dalam paru-paru lebih kecil daripada tekanan udara di luar tubuh",
+                    "Tekanan udara di dalam paru-paru sama dengan tekanan udara atmosfer",
+                    "Paru-paru memiliki otot sendiri yang aktif menyedot udara masuk"
+                ],
+                correctIndex: 1,
+                explanation: "Sesuai hukum fisika gas (Hukum Boyle), udara mengalir dari tempat bertekanan tinggi ke tempat bertekanan rendah. Saat rongga dada membesar, tekanan intrapulmoner turun di bawah tekanan atmosfer sehingga udara masuk."
+            },
+            {
+                id: 10,
+                topic: "Volume Udara Pernafasan",
+                question: "Volume udara yang keluar dan masuk paru-paru secara normal saat tubuh dalam keadaan istirahat (sekitar 500 mL) disebut...",
+                options: [
+                    "Udara komplementer",
+                    "Udara suplementer",
+                    "Udara tidal",
+                    "Udara residu"
+                ],
+                correctIndex: 2,
+                explanation: "Volume tidal (udara pernafasan biasa) adalah volume udara yang dihirup dan dihembuskan pada pernafasan normal, besarnya sekitar 500 mL pada orang dewasa."
+            },
+            {
+                id: 11,
+                topic: "Volume Udara Pernafasan",
+                question: "Setelah melakukan inspirasi normal, seseorang masih dapat menghirup udara lagi sekuat-kuatnya sebanyak ±1.500 mL. Volume udara tambahan ini disebut...",
+                options: [
+                    "Volume cadangan inspirasi (udara komplementer)",
+                    "Volume cadangan ekspirasi (udara suplementer)",
+                    "Volume residu",
+                    "Kapasitas vital paru-paru"
+                ],
+                correctIndex: 0,
+                explanation: "Udara komplementer (volume cadangan inspirasi) adalah udara yang masih dapat dimasukkan ke paru-paru secara maksimal setelah inspirasi biasa (±1.500 mL)."
+            },
+            {
+                id: 12,
+                topic: "Volume Udara Pernafasan",
+                question: "Kapasitas vital paru-paru merupakan jumlah maksimal udara yang dapat dikeluarkan dari paru-paru setelah inspirasi maksimal. Rumus untuk menghitung kapasitas vital adalah...",
+                options: [
+                    "Volume tidal + Volume residu",
+                    "Volume tidal + Udara komplementer + Udara suplementer",
+                    "Udara komplementer + Udara suplementer + Volume residu",
+                    "Volume tidal + Udara komplementer + Volume residu"
+                ],
+                correctIndex: 1,
+                explanation: "Kapasitas vital paru-paru (±3.500 mL) merupakan penjumlahan dari volume tidal (500 mL) + volume cadangan inspirasi/komplementer (1.500 mL) + volume cadangan ekspirasi/suplementer (1.500 mL)."
+            },
+            {
+                id: 13,
+                topic: "Volume Udara Pernafasan",
+                question: "Meskipun kita menghembuskan napas sekuat-kuatnya, di dalam paru-paru tetap tersisa udara sekitar 1.000 mL agar alveolus tidak kempis. Udara ini disebut...",
+                options: [
+                    "Udara tidal",
+                    "Udara komplementer",
+                    "Udara suplementer",
+                    "Udara residu"
+                ],
+                correctIndex: 3,
+                explanation: "Volume residu adalah udara sisa yang selalu tertinggal di dalam paru-paru (±1.000 mL) setelah ekspirasi maksimal untuk menjaga alveolus tetap terbuka."
+            },
+            {
+                id: 14,
+                topic: "Pertukaran Gas",
+                question: "Proses perpindahan oksigen (O2) dari alveolus ke kapiler darah dan karbon dioksida (CO2) dari kapiler darah ke alveolus berlangsung secara...",
+                options: [
+                    "Osmosis",
+                    "Transpor aktif",
+                    "Difusi",
+                    "Endositosis"
+                ],
+                correctIndex: 2,
+                explanation: "Pertukaran gas di alveolus maupun jaringan terjadi secara difusi pasif berdasarkan perbedaan tekanan parsial gas (dari tekanan parsial tinggi ke tekanan parsial rendah)."
+            },
+            {
+                id: 15,
+                topic: "Pertukaran Gas",
+                question: "Sebagian besar oksigen di dalam darah diangkut menuju jaringan tubuh dalam bentuk...",
+                options: [
+                    "Oksihemoglobin (HbO2)",
+                    "Karbominohemoglobin (HbCO2)",
+                    "Asam karbonat (H2CO3)",
+                    "Larut bebas dalam plasma darah"
+                ],
+                correctIndex: 0,
+                explanation: "Sekitar 97-98% oksigen berikatan dengan atom besi pada hemoglobin di dalam sel darah merah membentuk senyawa oksihemoglobin (HbO2)."
+            },
+            {
+                id: 16,
+                topic: "Pertukaran Gas",
+                question: "Sebagian besar karbon dioksida (CO2) hasil metabolisme sel diangkut oleh darah menuju paru-paru dalam bentuk...",
+                options: [
+                    "Oksihemoglobin (HbO2)",
+                    "Ion bikarbonat (HCO3-) di dalam plasma darah",
+                    "Gas CO2 murni di dalam leukosit",
+                    "Ikatan dengan trombosit"
+                ],
+                correctIndex: 1,
+                explanation: "Sekitar 70% CO2 diangkut dalam bentuk ion bikarbonat (HCO3-) di plasma darah, sekitar 23% berikatan dengan hemoglobin (karbominohemoglobin), dan 7% larut dalam plasma."
+            },
+            {
+                id: 17,
+                topic: "Gangguan Sistem Pernafasan",
+                question: "Gangguan pernafasan yang ditandai dengan penyempitan saluran pernafasan (bronkus dan bronkiolus) akibat hipersensitivitas terhadap alergen seperti debu, bulu hewan, atau udara dingin disebut...",
+                options: [
+                    "Emfisema",
+                    "Asma",
+                    "Pneumonia",
+                    "Tuberculosis (TBC)"
+                ],
+                correctIndex: 1,
+                explanation: "Asma merupakan penyakit penyumbatan saluran pernafasan yang bersifat reversibel akibat reaksi alergi yang memicu kontraksi otot polos bronkiolus dan produksi lendir berlebih."
+            },
+            {
+                id: 18,
+                topic: "Gangguan Sistem Pernafasan",
+                question: "Penyakit infeksi menular pada paru-paru yang disebabkan oleh bakteri Mycobacterium tuberculosis sehingga terbentuk bintil-bintil kecil (tuberkel) pada dinding alveolus adalah...",
+                options: [
+                    "Bronkitis",
+                    "Pleuritis",
+                    "TBC (Tuberkulosis)",
+                    "Laringitis"
+                ],
+                correctIndex: 2,
+                explanation: "Tuberkulosis (TBC) disebabkan oleh infeksi bakteri Mycobacterium tuberculosis yang merusak jaringan paru-paru dan menimbulkan bintil-bintil (tuberkel) pada alveolus."
+            },
+            {
+                id: 19,
+                topic: "Gangguan Sistem Pernafasan",
+                question: "Peradangan pada alveolus yang menyebabkan kantung-kantung udara terisi oleh cairan atau nanah akibat infeksi bakteri Streptococcus pneumoniae maupun virus disebut...",
+                options: [
+                    "Pneumonia",
+                    "Sinusitis",
+                    "Asfiksi",
+                    "Rinitis"
+                ],
+                correctIndex: 0,
+                explanation: "Pneumonia (radang paru-paru) menyebabkan alveolus dipenuhi cairan dan nanah sehingga menghambat difusi oksigen ke dalam darah."
+            },
+            {
+                id: 20,
+                topic: "Gangguan Sistem Pernafasan",
+                question: "Kerusakan permanen dan hilangnya elastisitas dinding alveolus sehingga luas permukaan pertukaran gas berkurang drastis—sering dialami oleh perokok berat—merupakan ciri penyakit...",
+                options: [
+                    "Faringitis",
+                    "Emfisema",
+                    "Polip hidung",
+                    "Tonsilitis"
+                ],
+                correctIndex: 1,
+                explanation: "Emfisema adalah kerusakan dinding alveolus akibat paparan asap rokok atau polutan jangka panjang, yang membuat alveolus pecah/melebar dan kehilangan daya lentingnya."
+            }
+        ];
+
+        // State Aplikasi
+        const state = {
+            studentName: "",
+            studentClass: "",
+            currentIndex: 0,
+            userAnswers: new Array(quizQuestions.length).fill(null), // Menyimpan indeks pilihan (0-3) atau null
+            isSubmitted: false
+        };
+
+        // Referensi Elemen DOM
+        const screens = {
+            welcome: document.getElementById("screen-welcome"),
+            quiz: document.getElementById("screen-quiz"),
+            result: document.getElementById("screen-result")
+        };
+
+        const identityForm = document.getElementById("identity-form");
+        const inputName = document.getElementById("student-name");
+        const inputClass = document.getElementById("student-class");
+        const errorName = document.getElementById("error-name");
+        const errorClass = document.getElementById("error-class");
+        const btnStartQuiz = document.getElementById("btn-start-quiz");
+
+        const headerStudentInfo = document.getElementById("header-student-info");
+        const headerName = document.getElementById("header-name");
+        const headerClass = document.getElementById("header-class");
+
+        const questionCounter = document.getElementById("question-counter");
+        const questionTopic = document.getElementById("question-topic");
+        const quizProgressBar = document.getElementById("quiz-progress-bar");
+        const questionText = document.getElementById("question-text");
+        const optionsContainer = document.getElementById("options-container");
+        const questionNavGrid = document.getElementById("question-nav-grid");
+        const answeredStatusBadge = document.getElementById("answered-status-badge");
+
+        const btnPrev = document.getElementById("btn-prev");
+        const btnNext = document.getElementById("btn-next");
+        const btnSubmitQuiz = document.getElementById("btn-submit-quiz");
+
+        const confirmModal = document.getElementById("confirm-modal");
+        const modalMessage = document.getElementById("modal-message");
+        const btnModalCancel = document.getElementById("btn-modal-cancel");
+        const btnModalConfirm = document.getElementById("btn-modal-confirm");
+
+        // =========================================================
+        // VALIDASI IDENTITAS HALAMAN AWAL
+        // =========================================================
+        function validateIdentityInputs() {
+            const nameVal = inputName.value.trim();
+            const classVal = inputClass.value.trim();
+            const isValid = nameVal.length > 0 && classVal.length > 0;
+
+            if (isValid) {
+                btnStartQuiz.disabled = false;
+                btnStartQuiz.classList.remove("bg-slate-300", "cursor-not-allowed");
+                btnStartQuiz.classList.add("bg-teal-600", "hover:bg-teal-700", "shadow-md", "cursor-pointer");
+            } else {
+                btnStartQuiz.disabled = true;
+                btnStartQuiz.classList.add("bg-slate-300", "cursor-not-allowed");
+                btnStartQuiz.classList.remove("bg-teal-600", "hover:bg-teal-700", "shadow-md", "cursor-pointer");
+            }
+            return isValid;
+        }
+
+        inputName.addEventListener("input", () => {
+            errorName.classList.add("hidden");
+            validateIdentityInputs();
+        });
+
+        inputClass.addEventListener("input", () => {
+            errorClass.classList.add("hidden");
+            validateIdentityInputs();
+        });
+
+        identityForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const nameVal = inputName.value.trim();
+            const classVal = inputClass.value.trim();
+
+            let hasError = false;
+            if (!nameVal) {
+                errorName.classList.remove("hidden");
+                hasError = true;
+            }
+            if (!classVal) {
+                errorClass.classList.remove("hidden");
+                hasError = true;
+            }
+            if (hasError) return;
+
+            state.studentName = nameVal;
+            state.studentClass = classVal;
+
+            startQuiz();
+        });
+
+        // =========================================================
+        // MEMULAI & MERENDER KUIS
+        // =========================================================
+        function switchScreen(target) {
+            Object.values(screens).forEach(el => el.classList.add("hidden"));
+            screens[target].classList.remove("hidden");
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+
+        function startQuiz() {
+            state.currentIndex = 0;
+            state.userAnswers = new Array(quizQuestions.length).fill(null);
+            state.isSubmitted = false;
+
+            // Tampilkan identitas siswa di header
+            headerName.textContent = state.studentName;
+            headerClass.textContent = `Kelas: ${state.studentClass}`;
+            headerStudentInfo.classList.remove("hidden");
+
+            switchScreen("quiz");
+            renderQuestion();
+            renderNavGrid();
+        }
+
+        function renderQuestion() {
+            const q = quizQuestions[state.currentIndex];
+            const total = quizQuestions.length;
+            const currentNum = state.currentIndex + 1;
+
+            // Update indikator soal & progress bar
+            questionCounter.textContent = `Soal ${currentNum} dari ${total}`;
+            questionTopic.textContent = `Topik: ${q.topic}`;
+            const progressPercent = (currentNum / total) * 100;
+            quizProgressBar.style.width = `${progressPercent}%`;
+
+            // Render teks pertanyaan (mendukung baris baru \n)
+            questionText.innerHTML = `${currentNum}. ${q.question.replace(/\n/g, "<br>")}`;
+
+            // Render opsi jawaban A, B, C, D
+            const optionLetters = ["A", "B", "C", "D"];
+            optionsContainer.innerHTML = "";
+
+            q.options.forEach((optionText, idx) => {
+                const isSelected = state.userAnswers[state.currentIndex] === idx;
+                const button = document.createElement("button");
+                button.type = "button";
+                button.className = `w-full text-left p-4 rounded-2xl border-2 transition-all duration-150 flex items-start space-x-3.5 group ${
+                    isSelected
+                        ? "border-teal-600 bg-teal-50/80 shadow-xs"
+                        : "border-slate-200 bg-white hover:border-teal-300 hover:bg-slate-50"
+                }`;
+
+                button.innerHTML = `
+                    <span class="w-8 h-8 rounded-xl flex-shrink-0 flex items-center justify-center text-sm font-bold transition-colors ${
+                        isSelected
+                            ? "bg-teal-600 text-white"
+                            : "bg-slate-100 text-slate-700 group-hover:bg-teal-100 group-hover:text-teal-800"
+                    }">
+                        ${optionLetters[idx]}
+                    </span>
+                    <span class="text-sm sm:text-base pt-1 leading-snug ${
+                        isSelected ? "font-semibold text-teal-950" : "text-slate-700"
+                    }">
+                        ${optionText}
+                    </span>
+                `;
+
+                button.addEventListener("click", () => selectOption(idx));
+                optionsContainer.appendChild(button);
+            });
+
+            // Atur status tombol Sebelumnya & Selanjutnya
+            btnPrev.disabled = state.currentIndex === 0;
+            if (state.currentIndex === total - 1) {
+                btnNext.classList.add("hidden");
+            } else {
+                btnNext.classList.remove("hidden");
+            }
+
+            updateAnsweredCount();
+        }
+
+        function selectOption(optionIdx) {
+            state.userAnswers[state.currentIndex] = optionIdx;
+            renderQuestion();
+            renderNavGrid();
+        }
+
+        function renderNavGrid() {
+            questionNavGrid.innerHTML = "";
+            quizQuestions.forEach((_, idx) => {
+                const isCurrent = idx === state.currentIndex;
+                const isAnswered = state.userAnswers[idx] !== null;
+
+                const btn = document.createElement("button");
+                btn.type = "button";
+                btn.textContent = idx + 1;
+
+                let baseClass = "h-10 rounded-xl text-xs sm:text-sm font-bold transition flex items-center justify-center border ";
+                if (isCurrent) {
+                    baseClass += "bg-teal-600 text-white border-teal-600 ring-2 ring-teal-200 shadow-xs";
+                } else if (isAnswered) {
+                    baseClass += "bg-emerald-100 text-emerald-800 border-emerald-400 hover:bg-emerald-200";
+                } else {
+                    baseClass += "bg-slate-100 text-slate-600 border-slate-200 hover:bg-slate-200";
+                }
+
+                btn.className = baseClass;
+                btn.addEventListener("click", () => {
+                    state.currentIndex = idx;
+                    renderQuestion();
+                    renderNavGrid();
+                });
+
+                questionNavGrid.appendChild(btn);
+            });
+        }
+
+        function updateAnsweredCount() {
+            const answeredCount = state.userAnswers.filter(ans => ans !== null).length;
+            answeredStatusBadge.textContent = `${answeredCount} / ${quizQuestions.length} Terjawab`;
+        }
+
+        // Navigasi Sebelumnya & Selanjutnya
+        btnPrev.addEventListener("click", () => {
+            if (state.currentIndex > 0) {
+                state.currentIndex--;
+                renderQuestion();
+                renderNavGrid();
+            }
+        });
+
+        btnNext.addEventListener("click", () => {
+            if (state.currentIndex < quizQuestions.length - 1) {
+                state.currentIndex++;
+                renderQuestion();
+                renderNavGrid();
+            }
+        });
+
+        // =========================================================
+        // KONFIRMASI PENGUMPULAN KUIS
+        // =========================================================
+        btnSubmitQuiz.addEventListener("click", () => {
+            const unansweredCount = state.userAnswers.filter(ans => ans === null).length;
+
+            if (unansweredCount > 0) {
+                modalMessage.innerHTML = `Masih terdapat <strong class="text-rose-600">${unansweredCount} soal yang belum dijawab</strong>. Soal yang kosong akan dianggap salah. Apakah Anda yakin ingin mengumpulkan sekarang?`;
+            } else {
+                modalMessage.textContent = "Semua 20 soal telah terjawab. Apakah Anda yakin ingin mengumpulkan jawaban dan melihat skor akhir?";
+            }
+
+            confirmModal.classList.remove("hidden");
+        });
+
+        btnModalCancel.addEventListener("click", () => {
+            confirmModal.classList.add("hidden");
+        });
+
+        btnModalConfirm.addEventListener("click", () => {
+            confirmModal.classList.add("hidden");
+            finishQuiz();
+        });
+
+        // =========================================================
+        // HALAMAN HASIL & PEMBAHASAN
+        // =========================================================
+        function getPredicate(score) {
+            if (score >= 90) return { label: "Sangat Baik (A)", style: "bg-emerald-100 text-emerald-800 border border-emerald-300" };
+            if (score >= 75) return { label: "Baik (B)", style: "bg-teal-100 text-teal-800 border border-teal-300" };
+            if (score >= 60) return { label: "Cukup (C)", style: "bg-amber-100 text-amber-800 border border-amber-300" };
+            return { label: "Perlu Bimbingan (D)", style: "bg-rose-100 text-rose-800 border border-rose-300" };
+        }
+
+        function finishQuiz() {
+            state.isSubmitted = true;
+
+            let correctCount = 0;
+            quizQuestions.forEach((q, idx) => {
+                if (state.userAnswers[idx] === q.correctIndex) {
+                    correctCount++;
+                }
+            });
+
+            const total = quizQuestions.length;
+            const wrongCount = total - correctCount;
+            const finalScore = Math.round((correctCount / total) * 100);
+            const predicate = getPredicate(finalScore);
+
+            // Isi data ringkasan hasil
+            document.getElementById("result-student-name").textContent = state.studentName;
+            document.getElementById("result-student-class").textContent = `Kelas: ${state.studentClass}`;
+            document.getElementById("result-score").textContent = finalScore;
+            document.getElementById("result-correct-count").textContent = `${correctCount} Soal`;
+            document.getElementById("result-wrong-count").textContent = `${wrongCount} Soal`;
+
+            const predEl = document.getElementById("result-predicate");
+            predEl.textContent = `Predikat: ${predicate.label}`;
+            predEl.className = `inline-block px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold ${predicate.style}`;
+
+            // Update tombol filter
+            document.getElementById("filter-all").textContent = `Semua (${total})`;
+            document.getElementById("filter-correct").textContent = `Benar (${correctCount})`;
+            document.getElementById("filter-wrong").textContent = `Salah (${wrongCount})`;
+
+            renderReviewList("all");
+            switchScreen("result");
+        }
+
+        function renderReviewList(filterType) {
+            const reviewList = document.getElementById("review-list");
+            const optionLetters = ["A", "B", "C", "D"];
+            reviewList.innerHTML = "";
+
+            quizQuestions.forEach((q, idx) => {
+                const userAnsIdx = state.userAnswers[idx];
+                const isCorrect = userAnsIdx === q.correctIndex;
+
+                if (filterType === "correct" && !isCorrect) return;
+                if (filterType === "wrong" && isCorrect) return;
+
+                const userAnswerText = userAnsIdx !== null
+                    ? `${optionLetters[userAnsIdx]}. ${q.options[userAnsIdx]}`
+                    : "Tidak dijawab";
+                const correctAnswerText = `${optionLetters[q.correctIndex]}. ${q.options[q.correctIndex]}`;
+
+                const card = document.createElement("div");
+                card.className = `bg-white rounded-2xl p-5 sm:p-6 border-l-4 shadow-sm border border-slate-200/80 ${
+                    isCorrect ? "border-l-emerald-500" : "border-l-rose-500"
+                }`;
+
+                card.innerHTML = `
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                        <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">
+                            Soal No. ${idx + 1} &bull; ${q.topic}
+                        </span>
+                        <span class="inline-flex items-center space-x-1 px-2.5 py-1 rounded-lg text-xs font-bold ${
+                            isCorrect
+                                ? "bg-emerald-100 text-emerald-800"
+                                : "bg-rose-100 text-rose-800"
+                        }">
+                            <span>${isCorrect ? "✓ Jawaban Benar" : "✕ Jawaban Salah"}</span>
+                        </span>
+                    </div>
+
+                    <p class="text-sm sm:text-base font-semibold text-slate-900 mb-4 leading-relaxed">
+                        ${q.question.replace(/\n/g, "<br>")}
+                    </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-4 text-xs sm:text-sm">
+                        <div class="p-3.5 rounded-xl border ${
+                            isCorrect
+                                ? "bg-emerald-50/70 border-emerald-200 text-emerald-900"
+                                : "bg-rose-50/70 border-rose-200 text-rose-900"
+                        }">
+                            <p class="font-bold text-[11px] uppercase tracking-wider opacity-75 mb-1">Jawaban Anda:</p>
+                            <p class="font-medium">${userAnswerText}</p>
+                        </div>
+
+                        <div class="p-3.5 rounded-xl bg-teal-50/70 border border-teal-200 text-teal-950">
+                            <p class="font-bold text-[11px] uppercase tracking-wider text-teal-700 mb-1">Kunci Jawaban Benar:</p>
+                            <p class="font-semibold">${correctAnswerText}</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-50 rounded-xl p-3.5 border border-slate-200/70 text-xs sm:text-sm text-slate-700 leading-relaxed">
+                        <span class="font-bold text-slate-900">Pembahasan:</span> ${q.explanation}
+                    </div>
+                `;
+
+                reviewList.appendChild(card);
+            });
+
+            if (reviewList.innerHTML === "") {
+                reviewList.innerHTML = `
+                    <div class="bg-white rounded-2xl p-8 text-center border border-slate-200 text-slate-500 text-sm">
+                        Tidak ada soal pada kategori filter ini.
+                    </div>
+                `;
+            }
+        }
+
+        // Fungsi filter pembahasan
+        window.filterReview = function(type) {
+            const buttons = {
+                all: document.getElementById("filter-all"),
+                correct: document.getElementById("filter-correct"),
+                wrong: document.getElementById("filter-wrong")
+            };
+
+            Object.keys(buttons).forEach(key => {
+                if (key === type) {
+                    buttons[key].className = "px-3 py-1.5 rounded-lg bg-teal-600 text-white transition";
+                } else {
+                    buttons[key].className = "px-3 py-1.5 rounded-lg bg-white text-slate-600 border border-slate-200 hover:bg-slate-50 transition";
+                }
+            });
+
+            renderReviewList(type);
+        };
+
+        // Tombol Ulangi Kuis
+        document.getElementById("btn-retry-quiz").addEventListener("click", () => {
+            headerStudentInfo.classList.add("hidden");
+            switchScreen("welcome");
+        });
+    </script>
 </body>
 </html>
